@@ -2,7 +2,7 @@
 
 function calcularCostoCombustible() {
     const viajes = [];
-    let continuar = true;  
+    let continuar = true;
 
     do {
         const distanciaViaje = parseInt(prompt("Ingresá la distancia de tu viaje en kilómetros (utilizá solo números)"));
@@ -21,17 +21,21 @@ function calcularCostoCombustible() {
             });
 
             alert(`El costo total del combustible para tu viaje es de $${costoTotal.toFixed(2)}`);
+
+            for (let i = 0; i < viajes.length; i++) {
+                const viajeIndividual = viajes[i];
+                console.log(`Viaje Nro. ${i + 1}:\nDistancia: ${viajeIndividual.distancia} km\nPrecio del litro: $${viajeIndividual.precioLitro.toFixed(2)}\nRendimiento de tu auto: ${viajeIndividual.rendimientoAuto.toFixed(2)} km/l\nCosto total: $${viajeIndividual.costoTotal.toFixed(2)}`);
+            }
+
+
         } else {
             alert("Para ver el costo total de tu viaje debes ingresar los valores en números (sin letras, ni signos)");
         }
 
         continuar = confirm("¿Deseas calcular otro viaje?");
-    } while (continuar);  
+    } while (continuar);
 
-    for (let i = 0; i < viajes.length; i++) {
-        const viajeIndividual = viajes[i];
-        console.log(`Viaje Nro. ${i + 1}:\nDistancia: ${viajeIndividual.distancia} km\nPrecio del litro: $${viajeIndividual.precioLitro.toFixed(2)}\nRendimiento de tu auto: ${viajeIndividual.rendimientoAuto.toFixed(2)} km/l\nCosto total: $${viajeIndividual.costoTotal.toFixed(2)}`);
-    }
+
 }
 
 calcularCostoCombustible(); 
